@@ -6,7 +6,13 @@ function Button(props) {
   function handleClick() {
     navigate(props.routeTo);
   }
-  return <div onClick={handleClick}>{props.label}</div>;
+  return (
+    <div className="flex m-8">
+      <div className=" bg-yellow-600 px-5 rounded-lg" onClick={handleClick}>
+        {props.label}
+      </div>
+    </div>
+  );
 }
 
 export default Button;

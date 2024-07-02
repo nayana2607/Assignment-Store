@@ -1,4 +1,3 @@
-import { func } from "prop-types";
 import { createContext, useState } from "react";
 
 export const FavoriteMealContext = createContext({
@@ -16,7 +15,7 @@ function FavoritesContextProvider({ children }) {
 
   function removeFavorites(id) {
     setFavoriteIds((currMeals) =>
-      currMeals.filter((curr) => curr.idMeal != id)
+      currMeals.filter((curr) => curr.idMeal !== id)
     );
   }
 

@@ -18,14 +18,18 @@ function Menu() {
   return (
     <div>
       <Header />
-      {categories?.map((category) => (
-        <div key={category.idCategory}>
-          <Button
-            label={category.strCategory}
-            routeTo={`/meals/${category.strCategory}`}
-          />
-        </div>
-      ))}
+      <div className="flex flex-wrap w-6/12 m-auto bg-gray-200 my-12 p-4 shadow-xl rounded-lg">
+        {categories
+          ? categories?.map((category) => (
+              <div key={category.idCategory} className="flex justify-between">
+                <Button
+                  label={category.strCategory}
+                  routeTo={`/meals/${category.strCategory}`}
+                />
+              </div>
+            ))
+          : "Loading......"}
+      </div>
     </div>
   );
 }

@@ -6,9 +6,11 @@ function Home() {
   return (
     <div>
       <Header />
-      <Button label={"Menu"} routeTo={"menu"} />
-      <Button label={"Favorites"} routeTo={"myfavorites"} />
-      <Button label={"Random Meal"} routeTo={"mealGenerator"} />
+      <div className="flex flex-wrap justify-center w-6/12 m-auto bg-gray-200 my-12 p-4 shadow-xl rounded-lg">
+        <Button label={"Menu"} routeTo={"menu"} />
+        <Button label={"Favorites"} routeTo={"favorites"} />
+        <Button label={"Random Meal"} routeTo={"generator"} />
+      </div>
     </div>
   );
 }

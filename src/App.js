@@ -2,13 +2,14 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
-import About from "./pages/About";
 import MealGenerator from "./pages/MealGenerator";
 import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
 import Meals from "./pages/Meals";
 import FavoritesContextProvider from "./store/meal-context";
+import { Suspense, lazy } from "react";
 
+const About = lazy(() => import("./pages/About"));
 function App() {
   const appRouter = createBrowserRouter([
     {
@@ -21,7 +22,11 @@ function App() {
     },
     {
       path: "/about",
-      element: <About />,
+      element: (
+        <Suspense fallback={<h1>Loading....</h1>}>
+          <About />
+        </Suspense>
+      ),
     },
     {
       path: "/menu",

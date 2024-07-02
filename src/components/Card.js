@@ -1,11 +1,11 @@
 import React from "react";
 
-function Card({ data }) {
+function Card({ data, handleFavorite, showFavorite }) {
   return (
     <div>
       <img src={data.strMealThumb} alt={data.strMeal} />
       <div>{data.strMeal}</div>
-      <div>Heart</div>
+      <div onClick={handleFavorite}>{showFavorite ? "♥️" : "♡"}</div>
     </div>
   );
 }

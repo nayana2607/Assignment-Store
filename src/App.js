@@ -7,6 +7,7 @@ import MealGenerator from "./pages/MealGenerator";
 import Menu from "./pages/Menu";
 import NotFound from "./pages/NotFound";
 import Meals from "./pages/Meals";
+import FavoritesContextProvider from "./store/meal-context";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -41,7 +42,9 @@ function App() {
   ]);
   return (
     <div>
-      <RouterProvider router={appRouter} />
+      <FavoritesContextProvider>
+        <RouterProvider router={appRouter} />
+      </FavoritesContextProvider>
     </div>
   );
 }

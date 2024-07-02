@@ -2,22 +2,26 @@ import { func } from "prop-types";
 import { createContext, useState } from "react";
 
 export const FavoriteMealContext = createContext({
-  ids: [],
+  favMeals: [],
   addFavorite: (id) => {},
   removeFavorites: (id) => {},
 });
 
 function FavoritesContextProvider({ children }) {
-  const [favoriteIds, setFavoriteIds] = useState();
-  function addFavorite(id) {
-    setFavoriteIds((currIDs) => [...currIDs, id]);
+  const [favoriteIds, setFavoriteIds] = useState([]);
+
+  function addFavorite(meal) {
+    setFavoriteIds((currMeals) => [...currMeals, meal]);
   }
+
   function removeFavorites(id) {
-    setFavoriteIds((currIDs) => currIDs.filter((currid) => currid != id));
+    setFavoriteIds((currMeals) =>
+      currMeals.filter((curr) => curr.idMeal != id)
+    );
   }
 
   const value = {
-    ids: favoriteIds,
+    favMeals: favoriteIds,
     addFavorite: addFavorite,
     removeFavorites: removeFavorites,
   };

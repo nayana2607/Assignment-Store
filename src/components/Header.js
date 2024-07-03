@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const LOGO_URL =
@@ -12,19 +12,55 @@ function Header() {
       <div className="flex items-center justify-between">
         <ul className="flex p-5 m-2">
           <li className="px-4">
-            <Link to="/">Home</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return { fontWeight: isActive ? "bold" : "" };
+              }}
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+
+          <li className="px-4">
+            <NavLink
+              style={({ isActive }) => {
+                return { fontWeight: isActive ? "bold" : "" };
+              }}
+              to="/menu"
+            >
+              Menu
+            </NavLink>
           </li>
           <li className="px-4">
-            <Link to="/menu">Menu</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return { fontWeight: isActive ? "bold" : "" };
+              }}
+              to="/favorites"
+            >
+              Favourites
+            </NavLink>
           </li>
           <li className="px-4">
-            <Link to="/favorites">Favourites</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return { fontWeight: isActive ? "bold" : "" };
+              }}
+              to="/generator"
+            >
+              Random Meal
+            </NavLink>
           </li>
           <li className="px-4">
-            <Link to="/generator">Random Meal</Link>
-          </li>
-          <li className="px-4">
-            <Link to="/about">About</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return { fontWeight: isActive ? "bold" : "" };
+              }}
+              to="/about"
+            >
+              About
+            </NavLink>
           </li>
         </ul>
       </div>
